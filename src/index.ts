@@ -31,7 +31,7 @@ fs.readFile(SECRETS_JSON, (err, data) => {
   const app = express()
   const port = 3000
   
-  app.get(`/${secrets.website_update_key}`, (_req, res) => {
+  app.get(`/webhooks/${secrets.website_update_key}`, (_req, res) => {
     // Run command to update website
     child_process.execFile('/var/www/queeriouslabs.com/deploy.sh', (error, stdout, stderr) => {
       if (error) {
